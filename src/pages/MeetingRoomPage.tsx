@@ -662,10 +662,25 @@ const getColumns = (count: number, isMobile: boolean) => {
 
             const config = {
                 iceServers: [
+                    {
+                      urls: [
+                        'turn:uat-api-m-health.d.orisma.com:3478?transport=udp',
+                        'turn:uat-api-m-health.d.orisma.com:3478?transport=tcp',
+                        'turn:api.mnrh.app:3478?transport=udp',
+                        'turn:api.mnrh.app:3478?transport=tcp',
+                      ],
+                      username: 'test',
+                      credential: 'test',
+                    },
                     { urls: 'stun:stun.l.google.com:19302' },
                     { urls: 'stun:stun1.l.google.com:19302' },
-                ],
+                    { urls: 'stun:stun2.l.google.com:19302' },
+                    { urls: 'stun:stun3.l.google.com:19302' },
+                    { urls: 'stun:stun4.l.google.com:19302' },
+                    
+                  ],
             };
+
 
             const peerConnection = new RTCPeerConnection(config);
 
