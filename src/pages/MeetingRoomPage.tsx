@@ -679,6 +679,10 @@ const getColumns = (count: number, isMobile: boolean) => {
                     { urls: 'stun:stun4.l.google.com:19302' },
                     
                   ],
+                  iceTransportPolicy: 'all',  // ให้ Browser เลือกเอง จะใช้ relay หรือ direct
+                  bundlePolicy: 'balanced',
+                  rtcpMuxPolicy: 'require',
+                  iceCandidatePoolSize: 0
             };
 
 
