@@ -48,6 +48,14 @@ interface Participant {
     isYou?: boolean;
 }
 
+interface RTCConfiguration {
+    iceServers?: RTCIceServer[];
+    iceTransportPolicy?: RTCIceTransportPolicy; // 'all' | 'relay'
+    bundlePolicy?: RTCBundlePolicy;             // 'balanced' | 'max-bundle' | 'max-compat'
+    rtcpMuxPolicy?: RTCRtcpMuxPolicy;           // 'require' | 'negotiate'
+  }
+  
+
 const MeetingRoomPage: React.FC = () => {
     const { roomId } = useParams<{ roomId: string }>();
     const [searchParams] = useSearchParams();
@@ -660,30 +668,29 @@ const getColumns = (count: number, isMobile: boolean) => {
             console.log('📊 Audio tracks:', audioTracks.length, audioTracks[0]?.readyState);
             console.log('📊 Video tracks:', videoTracks.length, videoTracks[0]?.readyState);
 
-            const config = {
+            const config: RTCConfiguration = {
                 iceServers: [
-                    {
-                      urls: [
-                        'turn:uat-api-m-health.d.orisma.com:3478?transport=udp',
-                        'turn:uat-api-m-health.d.orisma.com:3478?transport=tcp',
-                        'turn:api.mnrh.app:3478?transport=udp',
-                        'turn:api.mnrh.app:3478?transport=tcp',
-                      ],
-                      username: 'test',
-                      credential: 'test',
-                    },
-                    { urls: 'stun:stun.l.google.com:19302' },
-                    { urls: 'stun:stun1.l.google.com:19302' },
-                    { urls: 'stun:stun2.l.google.com:19302' },
-                    { urls: 'stun:stun3.l.google.com:19302' },
-                    { urls: 'stun:stun4.l.google.com:19302' },
-                    
-                  ],
-                  iceTransportPolicy: 'all',  // ให้ Browser เลือกเอง จะใช้ relay หรือ direct
-                  bundlePolicy: 'balanced',
-                  rtcpMuxPolicy: 'require',
-                  iceCandidatePoolSize: 0
-            };
+                  {
+                    urls: [
+                      'turn:uat-api-m-health.d.orisma.com:3478?transport=udp',
+                      'turn:uat-api-m-health.d.orisma.com:3478?transport=tcp',
+                      'turn:api.mnrh.app:3478?transport=udp',
+                      'turn:api.mnrh.app:3478?transport=tcp',
+                    ],
+                    username: 'test',
+                    credential: 'test',
+                  },
+                  { urls: 'stun:stun.l.google.com:19302' },
+                  { urls: 'stun:stun1.l.google.com:19302' },
+                  { urls: 'stun:stun2.l.google.com:19302' },
+                  { urls: 'stun:stun3.l.google.com:19302' },
+                  { urls: 'stun:stun4.l.google.com:19302' },
+                ],
+                iceTransportPolicy: 'all',
+                bundlePolicy: 'balanced',
+                rtcpMuxPolicy: 'require',
+              };
+              
 
 
             const peerConnection = new RTCPeerConnection(config);
