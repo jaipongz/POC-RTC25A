@@ -672,8 +672,6 @@ const getColumns = (count: number, isMobile: boolean) => {
                 iceServers: [
                   {
                     urls: [
-                      'turn:uat-api-m-health.d.orisma.com:3478?transport=udp',
-                      'turn:uat-api-m-health.d.orisma.com:3478?transport=tcp',
                       'turn:api.mnrh.app:3478?transport=udp',
                       'turn:api.mnrh.app:3478?transport=tcp',
                     ],
