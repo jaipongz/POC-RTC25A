@@ -1,0 +1,55 @@
+{
+  "name": "meeting-poc",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@microsoft/signalr": "^8.0.0",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.19",
+    "@mui/x-date-pickers": "^6.18.7",
+    "axios": "^1.6.2",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "5.0.1",
+    "react-webcam": "^7.2.0",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "webrtc-adapter": "^8.2.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3"
+  }
+}
